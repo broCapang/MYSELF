@@ -11,6 +11,7 @@ public class labs {
         for (int i = 0; i < 10; i++) {
             bro[i] = x[j];
             --j;
+            System.out.println("ur mom");
         }
         return bro;
     }
