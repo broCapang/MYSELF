@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class labs {
+public class lab6q3 {
     static int[] reverse(int[] x) {
         int[] bro = new int[10];
         int j = 9;
