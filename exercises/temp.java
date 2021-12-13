@@ -4,46 +4,71 @@ import java.util.Scanner;
 
 public class temp {
     public static void main(String[] args) {
-        Scanner sn = new Scanner(System.in);
-        System.out.print("enter a word :");
-        String word = sn.nextLine();
-        int flag = 0,x = 0,y = 0,flag2 = 0;
-        for(int i = 0;i<word.length()-1 ;i++){
-            if((word.charAt(i) != 'a' || word.charAt(i) != 'e'|| word.charAt(i) != 'i'|| word.charAt(i) != 'o'|| word.charAt(i) != 'u') && ( word.charAt(i+1) == 'a' || word.charAt(i+1) == 'e'|| word.charAt(i+1) == 'i'|| word.charAt(i+1) == 'o'|| word.charAt(i+1) == 'u')){
-                flag++;
-                //System.out.println(word.charAt(i));
+        Scanner input = new Scanner(System.in);
+
+        // VARIABLES
+        String[] userEmail = new String[20];
+        int[] userPass = new int[20];
+        String[] adminEmail = new String[20];
+        int[] adminPass = new int[20];
+
+        // TEST EMAIL AND PASS
+        userEmail[0] = "irfan";
+        userPass[0] = 000000;
+        adminEmail[0] = "shazwy";
+        adminPass[0] = 111111;
+
+        while (true){
+            // GET INPUT FROM USER
+            System.out.println("USER 1");
+            System.out.println("ADMIN 2");
+            System.out.print("Enter the code : ");
+            int code = input.nextInt();
+
+            System.out.print("Email: ");
+            String emailInput = input.next();
+            System.out.print("Password: ");
+            int passInput = input.nextInt();
+
+            // VERIFYING PHASE
+
+            switch (code){
+                case 1:
+                    //USER
+                    for (int i=0;i<20;i++){     //VERIFYING PHASE
+                        if (userEmail[0].equals(emailInput)){
+                            if (userPass[0]==passInput){
+                                // ENTER MOVIE PAGE
+                                System.out.println("WE IN MOVIE PAGE");
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                case 2:
+                    // ADMIN
+                    for (int i=0;i<20;i++){     //VERIFYING PHASE
+                        if (adminEmail[i].equals(emailInput)){
+                            if (adminPass[i]==passInput){
+                                // ENTER ADMIN PAGE
+                                System.out.println("WE IN ADMIN PAGE");
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    // USER ENTER WRONG CODE
+                    System.out.print("Invalid code");
+                    break;
             }
-            if(flag == 1 && flag2 == 0){
-                x = i;
-                flag2++;
-                //  System.out.println(word.charAt(i)+" flag1");
+
+            // ASK USER IF THEY STILL WANT TO USE THIS PROGRAM
+            System.out.print("CONTINUE? (Y/N) : ");
+            char lastQ = input.next().charAt(0);
+            if (lastQ == 'N'){
+                break;
             }
-            if(flag == 2 && flag2 == 1){
-                y = i;
-                //System.out.println(word.charAt(i)+" flag2");
-                flag2++;}
         }
-
-        char[] ch = new char[word.length()];
-
-        // Copy character by character into array
-        for ( int i = 0; i < word.length(); i++) {
-            ch[i] = word.charAt(i);
-        }
-
-        ch[x] = word.charAt(y);
-        ch[y] = word.charAt(x);
-
-        // Printing content of array
-
-        System.out.print("lebron james will say: ");
-        for (char c : ch) {
-            System.out.print(c);
-        }
-        System.out.println("");
-
-
-
-
     }
 }
