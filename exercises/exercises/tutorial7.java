@@ -74,26 +74,35 @@ public class tutorial7 {
             System.out.println("PROBLEM WITH FILE OUTPUT");
         }*/
 
-        try {
-            ObjectOutputStream outputBinary3 = new ObjectOutputStream(new FileOutputStream("data.dat"));
+
+        // QUESTION3 BOIS
+        /*try {
             Scanner input = new Scanner(System.in);
+            System.out.print("Enter a sentence : ");
             String sentence = input.nextLine();
-            outputBinary3.writeUTF(sentence);
-            outputBinary3.close();
+            PrintWriter output = new PrintWriter(new FileOutputStream("binary.txt"));
+            int[] charInt= new int[sentence.length()];
+            for (int i=0;i<sentence.length();i++){
+                charInt[i]=(int) sentence.charAt(i);
+                output.println(Integer.toBinaryString(charInt[i]));
+            }
+            output.close();
         }catch (IOException e){
             System.out.println("PROBLEM WITH OUTPUT FILE");
         }
         try {
-            ObjectInputStream readBinary3 =  new ObjectInputStream(new FileInputStream("data.dat"));
-            // READ FILES FROM BINARY FILE THEN INSERT INTO NEW FILE
-            readBinary3.close();
-
-        }catch (FileNotFoundException e) {
-            System.out.println("File was not found");
-        }catch (IOException e){
-            System.out.println("PROBLEM WITH OUTPUT FILE");
+            String sentence ="";
+            Scanner read = new Scanner(new FileInputStream("binary.txt"));
+            while (read.hasNext()){
+                int charCode = Integer.parseInt(read.next(), 2);
+                sentence += (char)charCode;
+            }
+            read.close();
+            System.out.println(sentence);
+        }catch (FileNotFoundException e){
+            System.out.println("no file found");
         }
-
+*/
     }
 }
 
