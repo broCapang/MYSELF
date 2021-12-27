@@ -16,8 +16,8 @@ public class lab7q4 {
                 String bruh = read.nextLine();
                 String[] lesgo = bruh.split(" ");
                 words+= lesgo.length;
-                for (int i=0;i< lesgo.length;i++){
-                    characters+=lesgo[i].length();
+                for (String s : lesgo) {
+                    characters += s.length();
                 }
             }
             System.out.println("lines : "+lines+"\nWords : "+words+"\nCharacters : "+characters);
