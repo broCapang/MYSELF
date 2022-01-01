@@ -9,6 +9,12 @@ public class Main {
         System.out.println(bruh.output());
         bruh2.setCoordinateX(20);
         System.out.println(bruh2.output());
+
+        Connection a1 = new Connection();
+        Connection a2 = new Connection("AYYOOO");
+        System.out.println(a1.getConnection());
+        System.out.println(a2.getConnection());
+
     }
 
 
