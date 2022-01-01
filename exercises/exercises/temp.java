@@ -2,64 +2,80 @@ package exercises;
 
 import java.util.Scanner;
 
-public class temp {
+public class temp{
+    static int i = 0;
+    static int[][] permutationArray = new int[permutation(10)][10];
     public static void main(String[] args) {
-        int n = 0;
-        // 2, 3, 5, 7, 11, 101, 131, 151, 181, 191, 313, 353, 373, 383, 727, 757, 787, 797, 919, 929
-        // pC == palindromicCount
-        System.out.println("first 20 PALINDROME PRIMES");
-        for (int pC  = 0; pC  < 20;      ) {
-            if (isPalindromicPrime(n)){
-                pC++;
-                System.out.println(n);
+
+        int k;
+        int maxXOR;
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter the length of set A and set B (1 to 10): ");
+        k = s.nextInt();
+        if(k > 10){
+            System.out.println("Please enter a value from 1 to 10, please RESTART the program");
+            System.exit(0);
+        }
+
+        int[] A = new int[k];
+        int[] B = new int[k];
+
+        System.out.println("Please enter the elements of set A: ");
+        for(k = 0; k < A.length; k++){
+            A[k] = s.nextInt();
+        }
+        System.out.println("Please enter the elements of set B: ");
+        for(k = 0; k < B.length; k++){
+            B[k] = s.nextInt();
+        }
+
+        arrayPermutation(A, 0);
+
+        maxXOR = XOR(B);
+
+        System.out.println("\nThe maximum possible XOR value from both of the set is " + maxXOR);
+
+    }
+    private static int XOR(int[] fixed){
+        int maxXOR = 0;
+        for(int l = 0; l < permutation(fixed.length); l++){
+            int sumXOR = 0;
+            for(int m = 0; m < fixed.length; m++){
+                sumXOR += permutationArray[l][m] ^ fixed[m];
             }
-            n++;
-        }
-        System.out.println("\n\n\n");
-        n = 0;
-        // 13, 17, 31, 37, 71, 73, 79, 97, 107, 113, 149, 157, 167, 179, 199, 311, 337, 347, 359, 389,
-        // eC == emirpCount
-        System.out.println("first 20 ERIMP");
-        for (int eC = 0; eC < 20;      ) {
-            if (isEmirp(n)){
-                eC++;
-                System.out.println(n);
+            if(sumXOR > maxXOR){
+                maxXOR = sumXOR;
             }
-            n++;
+        }
+        return maxXOR;
+    }
+    private static int permutation(int num){
+        if(num == 1 || num == 0){
+            return 1;
+        }
+        else{
+            return num*permutation(num-1);
         }
     }
-
-
-
-    private static boolean isPalindromicPrime( int n) {
-        // not a palindrome number
-        if (n != reverse(n))
-            return false;
-
-        return isPrime(n);
-    }
-    private static int reverse(int n) {
-        int sum = 0;
-
-        while (n != 0){
-            sum = (sum*10) + (n%10);
-            n   /= 10;
+    private static void arrayPermutation(int[] dynamic, int index){
+        if(index >= dynamic.length - 1){
+            System.arraycopy(dynamic, 0, permutationArray[i], 0, dynamic.length);
+            i++;
+            return;
         }
 
-        return sum;
-    }
-    private static boolean isPrime( int n){
-        if (n < 2)
-            return false;
-        if (n == 2)
-            return true;
+        for(int i = index; i < dynamic.length; i++){ //For each index in the sub array arr[index...end]
 
-        for (int i = 2; i <= Math.sqrt(n); i++)
-            if (n%i == 0)
-                return false;
-        return true;
-    }
-    private static boolean isEmirp( int n) {
-        return isPrime(n) && isPrime(reverse(n)) && !isPalindromicPrime(n);
+            int temporary = dynamic[index];
+            dynamic[index] = dynamic[i];
+            dynamic[i] = temporary;
+
+            arrayPermutation(dynamic, index+1);
+
+            temporary = dynamic[index];
+            dynamic[index] = dynamic[i];
+            dynamic[i] = temporary;
+        }
     }
 }
