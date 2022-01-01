@@ -2,10 +2,14 @@ package exercises.tutorial8;
 
 public class Main {
     public static void main(String[] args) {
-        Student myObj = new Student();
-        System.out.println(myObj.number);
-        Student myObj2 = new Student("yes");
 
-        System.out.println(myObj2.number);
+        Coordinate bruh = new Coordinate();
+        Coordinate bruh2 = new Coordinate(12,15);
+
+        System.out.println(bruh.output());
+        bruh2.setCoordinateX(20);
+        System.out.println(bruh2.output());
     }
+
+
 }
