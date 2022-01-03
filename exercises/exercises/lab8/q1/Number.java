@@ -38,7 +38,7 @@ public class Number {
         }
         average= average/length;
     }
-    public void getEvenNumber(){
+    public void displayEvenNumber(){
         System.out.println("Even Numbers : ");
         for (int i=0;i<number.length;i++){
             if (number[i]%2==0){
@@ -46,7 +46,7 @@ public class Number {
             }
         }
     }
-    public void getPrimeNumber(){
+    public void displayPrimeNumber(){
         System.out.println("Prime Numbers : ");
         int bruh=0;
         for (int i=0;i<number.length;i++){
@@ -66,10 +66,10 @@ public class Number {
             }
         }
     }
-    public void getAverage(){
+    public void displayAverage(){
         System.out.println("Average : "+average);
     }
-    public void getMax(){
+    public void displayMax(){
         max=Integer.MIN_VALUE;
         for (int i = 0;i<number.length;i++){
             if (max< number[i]){
@@ -78,7 +78,7 @@ public class Number {
         }
         System.out.println("Max : "+max);
     }
-    public void getMin(){
+    public void displayMin(){
         min=Integer.MAX_VALUE;
         for (int i = 0;i<number.length;i++){
             if (min> number[i]){
@@ -94,11 +94,11 @@ public class Number {
 
         }
         System.out.println(str);
-        getEvenNumber();
-        getPrimeNumber();
-        getAverage();
-        getMax();
-        getMin();
+        displayEvenNumber();
+        displayPrimeNumber();
+        displayAverage();
+        displayMax();
+        displayMin();
 
     }
 }
