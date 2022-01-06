@@ -1,26 +1,23 @@
 package exercises.tutorial8;
 
 public class Payment {
-    private int cash;
-    private int chequeAmount;
+    private double amount;
     private String chequeNumber;
-    private int cardAmount;
     private String cardName;
     private String cardType, expiration_date,validation_code;
 
 
-    public Payment(int cash) {
-        this.cash = cash;
+    public Payment(double cash) {
+        this.amount = cash;
     }
 
-    public Payment(int chequeAmount, String chequeNumber) {
-        this.chequeAmount = chequeAmount;
+    public Payment(double chequeAmount, String chequeNumber) {
+        this.amount = chequeAmount;
         this.chequeNumber = chequeNumber;
     }
 
-    public Payment(int cash, int cardAmount, String cardName, String cardType, String expiration_date, String validation_code) {
-        this.cash = cash;
-        this.cardAmount = cardAmount;
+    public Payment(double cardAmount, String cardName, String cardType, String expiration_date, String validation_code) {
+        this.amount = cardAmount;
         this.cardName = cardName;
         this.cardType = cardType;
         this.expiration_date = expiration_date;
