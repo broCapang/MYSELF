@@ -1,4 +1,5 @@
 package exercises.lab9;
 
-public class Rectangle {
+public class Rectangle extends Shape{
+
 }
