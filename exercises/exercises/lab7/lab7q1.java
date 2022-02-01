@@ -9,6 +9,7 @@ public class lab7q1 {
         try {
             ObjectOutputStream outputBinary = new ObjectOutputStream(new FileOutputStream("coursename.dat"));
             outputBinary.writeUTF("WXES1116");
+
             outputBinary.writeUTF("Programming I");
             outputBinary.writeUTF("WXES1115");
             outputBinary.writeUTF("Data Structure");
@@ -23,6 +24,7 @@ public class lab7q1 {
             while (true){
                 String bruh = in.readUTF();
                 if (bruh.equals(code)){
+
                     System.out.println(in.readUTF());
                     break;
                 }
