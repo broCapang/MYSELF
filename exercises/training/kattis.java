@@ -1,4 +1,4 @@
-package training;
+package exercises.training;
 
 import exercises.sem2.Lab.L7.Q1.MyQueue;
 
